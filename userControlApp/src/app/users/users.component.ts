@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { Observable } from 'rxjs';
-import { trigger, style, transition, animate, keyframes, query, stagger } from '@angular/animations'
+import { trigger, style, transition, animate, keyframes, query, stagger } from '@angular/animations';
 
 @Component({
   selector: 'app-users',
@@ -11,7 +11,7 @@ import { trigger, style, transition, animate, keyframes, query, stagger } from '
     trigger('listStagger', [
       transition('* <=> *', [
         query(':enter', [
-          style({opacity:0, transform: 'translateY(-15px)'}),
+          style({opacity: 0, transform: 'translateY(-15px)'}),
           stagger('50ms',
             animate('550ms ease-out',
               style({opacity: 1, transform: 'translateY(0px)'})
@@ -20,10 +20,10 @@ import { trigger, style, transition, animate, keyframes, query, stagger } from '
         ],
         {optional: true}
       ),
-        query(':leave', 
-          animate('50ms', 
+        query(':leave',
+          animate('50ms',
             style({opacity: 0})),
-          {optional: true}) 
+          {optional: true})
       ])
     ])
   ]

@@ -8,21 +8,21 @@ import { trigger, style, query, transition, animate, keyframes, stagger } from '
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.scss'],
   animations: [
-    trigger('staggerPosts',[
-      transition('* <=> *',[
-        query(':enter',[
+    trigger('staggerPosts', [
+      transition('* <=> *', [
+        query(':enter', [
           style({opacity: 0, transform: 'translateY(-15px)' }),
-          stagger('50ms',[
-            animate('550ms ease-out', 
-              style({opacity:1, transform:'translateY(0px)'})
+          stagger('50ms', [
+            animate('550ms ease-out',
+              style({opacity: 1, transform: 'translateY(0px)'})
             )
           ])
         ],
         {optional: true}),
 
-        query(':leave', 
+        query(':leave',
           animate('50ms',
-            style({opacity:0})),
+            style({opacity: 0})),
         {optional: true})
       ])
     ])

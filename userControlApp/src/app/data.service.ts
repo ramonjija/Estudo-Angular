@@ -13,7 +13,7 @@ export class DataService {
   }
 
   getUser(idUser) {
-    return this.http.get('https://jsonplaceholder.typicode.com/users/'+idUser);
+    return this.http.get('https://jsonplaceholder.typicode.com/users/' + idUser);
   }
 
   getPosts() {
