@@ -19,8 +19,9 @@ export class LoginComponent implements OnInit {
       [Validators.required,
       Validators.minLength(5)])
     });
-}
-  createForm() {
+  }
+
+  createLoginForm() {
     this.loginForm = this.formBuilder.group({
       username: '',
       password: ''
@@ -36,16 +37,14 @@ export class LoginComponent implements OnInit {
   }
 
   constructor(private formBuilder: FormBuilder) { 
-    this.createForm();
+    this.createLoginForm();
   }
 
   login() {
-    console.log('Form Submitted');
+    console.log('User logged');
     console.log(this.loginForm.value);
-    alert(this.loginForm.value.username);
+    const user = this.loginForm.value.username;
+    alert(`Login Realizado com Sucesso: ${user}`);
     this.loginForm.reset();
   }
-
-
- 
 }

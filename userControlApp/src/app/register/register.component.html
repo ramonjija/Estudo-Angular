@@ -1,3 +1,40 @@
-<p>
-  register works!
-</p>
+<h1>Register</h1>
+<form [formGroup]="registerForm" (ngSubmit)="registerUser()">
+  <div class="form-group">
+    <label>Username</label>
+    <input class="form-control" formControlName="username" />
+    <div *ngIf="username.touched && username.errors">
+      <div class="alert alert-danger" *ngIf="username.errors.required">
+        The username is required
+      </div>
+      <div class="alert alert-danger" *ngIf="username.errors.minlength">
+        The username must have at least 5 characters
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>E-mail</label>
+    <input class="form-control" type="email" formControlName="email" />
+    <div *ngIf="email.touched && email.errors">
+      <div class="alert alert-danger" *ngIf="email.errors.required" >
+        The e-mail is required
+      </div>
+      <div class="alert alert-danger" *ngIf="email.errors.email" >
+        Please enter a valid e-mail
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input class="form-control" type="password" formControlName="password" />
+    <div *ngIf="password.touched && password.errors">
+      <div class="alert alert-danger" *ngIf="password.errors.required">
+        The password is required
+      </div>
+      <div class="alert alert-danger" *ngIf="password.errors.minlength">
+        The password must have at least 5 characters
+      </div>
+    </div>
+  </div>
+  <button [disabled]="!registerForm.valid" class="btn btn-primary" type="submit">Register</button>
+</form>
