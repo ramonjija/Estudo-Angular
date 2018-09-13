@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,10 @@ export class LoginComponent implements OnInit {
       [Validators.required,
       Validators.minLength(5)])
     });
+    if(sessionStorage.getItem("loggedIn") == "true") { 
+      this.router.navigate(['']);
+    }
+
   }
 
   createLoginForm() {
@@ -36,7 +41,7 @@ export class LoginComponent implements OnInit {
     return this.loginForm.get("password");
   }
 
-  constructor(private formBuilder: FormBuilder) { 
+  constructor(private formBuilder: FormBuilder, private router: Router) { 
     this.createLoginForm();
   }
 
@@ -46,5 +51,6 @@ export class LoginComponent implements OnInit {
     const user = this.loginForm.value.username;
     alert(`Login Realizado com Sucesso: ${user}`);
     this.loginForm.reset();
+    sessionStorage.setItem("loggedIn", "true");
   }
 }
