@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
     if(sessionStorage.getItem("loggedIn") == "true") { 
       this.router.navigate(['']);
     }
-
   }
 
   createLoginForm() {
